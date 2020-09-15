@@ -1,0 +1,42 @@
+<ion-header [translucent]="true" class="no-border">
+  <ion-toolbar class="ion-text-center">
+    Search Photo
+  </ion-toolbar>
+  <ion-searchbar animated (ionChange)="Buscar($event)"></ion-searchbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" size-lg="3" size-md="4" size-sm="6" size-xs="12" *ngFor="let photo of photos | filtro: textoBuscar:'description'">
+        <ion-card>
+          <ion-card-header>
+      
+            <ion-card-title>
+                {{photo.description}}
+              <div class="photo-more">
+                <ion-button fill="clear" (click)="lanzarMenu()">
+                  <ion-icon slot="icon-only" name="ellipsis-vertical"></ion-icon>
+  
+                </ion-button>
+              </div>
+            </ion-card-title>
+            
+           
+          </ion-card-header>
+          <ion-img [src]="photo.urls.regular"></ion-img>
+          <ion-card-content>
+            <p>Name: {{photo.user.name}}</p>
+            <p *ngIf="photo.user.bio">Bio: {{photo.user.bio}}</p>
+            <p *ngIf="photo.user.location">Location: {{photo.user.location}}</p>
+            <p>Total Photos: {{photo.user.total_photos}}</p>
+            <p>Total Likes: {{photo.user.total_likes}}</p>
+           
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+

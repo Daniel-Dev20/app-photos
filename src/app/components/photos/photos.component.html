@@ -1,0 +1,7 @@
+<ion-grid fixed>
+  <ion-row>
+    <ion-col size="12" size-lg="3" size-md="4" size-sm="6" size-xs="12" *ngFor="let photo of photos">
+     <app-photo [photo]="photo" [enFavoritos]="enFavoritos"></app-photo>
+    </ion-col>
+  </ion-row>
+</ion-grid>

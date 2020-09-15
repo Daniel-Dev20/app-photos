@@ -1,0 +1,16 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+   Favorites
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+<ion-slides [options]="sliderOpts" *ngIf="dataLocalService.photos.length == 0">
+  <ion-slide>
+    <ion-label>No hay Favoritos</ion-label>
+  </ion-slide>
+</ion-slides>
+<app-photos *ngIf="dataLocalService.photos.length > 0" [photos]="dataLocalService.photos" [enFavoritos]="true"></app-photos >
+</ion-content>

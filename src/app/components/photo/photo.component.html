@@ -1,0 +1,22 @@
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>
+      {{photo.title}} 
+      <div class="photo-more">
+        <ion-button fill="clear" (click)="lanzarMenu()">
+          <ion-icon slot="icon-only" name="ellipsis-vertical"></ion-icon>
+
+        </ion-button>
+      </div>
+    </ion-card-title>
+
+  </ion-card-header>
+  <ion-img   class="animates fadeIn fast" (click)="openPhoto()" [src]="photo.cover_photo.urls.regular"></ion-img>
+  <ion-card-content>
+   
+    <p>Name: {{photo.user.name}}</p>
+    <p *ngIf="photo.user.location">Location: {{photo.user.location}}</p>
+    <p *ngIf="photo.user.bio">Bio: {{photo.user.bio}}</p>
+    <p *ngIf="photo.user.instagram_username">Instagram: {{photo.user.instagram_username}}</p>
+  </ion-card-content>
+</ion-card>
